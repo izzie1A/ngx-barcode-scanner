@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
 /*hide scrollbar*/
 .page {
     height: 85vh;
@@ -58,6 +57,10 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
+  }
+
+  div {
+    -webkit-animation: move 5s infinite;
   }
   
   .cdk-drag-animating {
@@ -141,6 +144,12 @@
     
   }
   .kbutton:active {
+    top: 0px;
+    left: 0px;
+    box-shadow: 0px 0px 0px 0px;
+    transition: all 0.2s cubic-bezier(.4, 0, .2, 1);
+  }
+  .kbutton:click {
     top: 0px;
     left: 0px;
     box-shadow: 0px 0px 0px 0px;

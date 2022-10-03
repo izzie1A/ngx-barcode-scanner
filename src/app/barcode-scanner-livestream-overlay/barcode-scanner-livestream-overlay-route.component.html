@@ -1,14 +1,63 @@
-<div class="barcode-scanner-container">
-  <button type="button" (click)="startBarcodeScannerOverlay()">
-    Scan codebar with overlay window
-  </button>
-  <barcode-scanner-livestream-overlay
-    [type]="['code_128', 'code_39', 'ean_8']"
-    (valueChanges)="onValueChanges($event)"
-    (started)="onStarted($event)"
-  ></barcode-scanner-livestream-overlay>
-</div>
+<div class="kcard kround">
 
-<div class="barcode-value" [hidden]="!barcodeValue">
-  {{ barcodeValue }}
+  <div class="barcode-scanner-container">
+    <button type="button" (click)="startBarcodeScannerOverlay()">Scan codebar with overlay window</button>
+    <barcode-scanner-livestream-overlay [type]="['code_128', 'code_39', 'ean_8']"
+      (valueChanges)="onValueChanges($event)" (started)="onStarted($event)"></barcode-scanner-livestream-overlay>
+  </div>
+
+
+  <div>count {{count}}</div>
+  <div>Found: {{FoundMessage}}</div>
+
+  <div class="ktable ">
+    <div class="kcard kround">
+      <div class="kflex" [hidden]="!barcodeValue">
+        <div class="kcenterDeatil">Current: {{ barcodeValue }}</div>
+        <div class="kcenterDeatil">Scanned: {{count}}</div>
+        <div (click)="test()" class="kbutton kround kcard kcenterDeatil">Save / Clear</div>
+      </div>
+
+      <ul>
+        <div *ngFor="let code of scannedBarcodeList; let i = index">
+          <li>{{ code }}</li>
+        </div>
+      </ul>
+    </div>
+
+    <div class=" kcard kround kvtable">
+      <div (click)="test()" class="kbutton kround kcard kcenterDeatil">+ Save / Clear</div>
+
+      <div class=" kround">
+        <div>On Hold:</div>
+        <ul>
+          <div class="ktable" *ngFor="let code of searchingBarcodeList; let i = index">
+            <li>{{ code }}</li>
+            <button (click)="listDelete(searchingBarcodeList,i)">delete</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="kvflex">
+    <div class="">
+      <button class="kbutton kratior kfullRound kcard kcenterDeatil " type=""
+        (click)="startBarcodeScannerOverlay()">Scan</button>
+    </div>
+
+
+  </div>
+
+  <div class="ktable">
+    <div class="barcode-scanner-container">
+      <button class="kbutton kround kcenterDeatil " type="" (click)="testAdd()">Push</button>
+    </div>
+    <div class="barcode-scanner-container">
+      <button class="kbutton kround kcenterDeatil " type=""
+        (click)="search(this.searchingBarcodeList,barcodeValue)">Find</button>
+    </div>
+  </div>
+
 </div>

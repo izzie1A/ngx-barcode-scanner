@@ -13,7 +13,8 @@ export class BarcodeScannerLivestreamRouteComponent implements AfterViewInit {
     barcodeScanner: BarcodeScannerLivestreamComponent;
 
     barcodeValue: string;
-
+    count:number = 0;
+    
     ngAfterViewInit(): void {
         this.barcodeScanner.start();
     }

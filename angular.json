@@ -133,6 +133,16 @@
               "devServerTarget": "ngx-barcode-scanner-app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ngx-barcode-scanner-app:build:production",
+            "firebaseProject": "camera-af868",
+            "firebaseHostingSite": "camera-af868"
+          }
         }
       }
     },

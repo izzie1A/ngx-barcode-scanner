@@ -22,7 +22,7 @@ export class BarcodeScannerLivestreamOverlayComponent implements OnDestroy {
 
     @Input() deviceId: string;
 
-    @Input() width = '90vw';
+    @Input() width = '50vw';
 
     @Input() maxWidth = '640px';
 

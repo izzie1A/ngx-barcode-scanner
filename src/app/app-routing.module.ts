@@ -6,7 +6,7 @@ import { BarcodeScannerOverlayRouteComponent } from './barcode-scanner-livestrea
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/livestream',
+    redirectTo: '/livestream-overlay',
     pathMatch: 'full',
   },
   {
