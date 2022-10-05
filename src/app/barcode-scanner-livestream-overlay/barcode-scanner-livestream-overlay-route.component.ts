@@ -78,6 +78,14 @@ export class BarcodeScannerOverlayRouteComponent {
             this.barcodeValue = result.codeResult.code;
             this.scannedBarcodeList[this.scannedBarcodeList.length] = result.codeResult.code;
             this.search(this.searchingBarcodeList,this.barcodeValue)
+            let getHeader = this.barcodeValue[0]+ this.barcodeValue[1] + this.barcodeValue[2]
+            if(getHeader=="AMS"){
+                console.log("get")
+                console.log(this.barcodeValue[0])
+            }else{
+                console.log("not Ams")
+                console.log(this.barcodeValue[0])
+            }
         }
         this.barcodeScannerOverlay.hide();
     }
